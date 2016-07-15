@@ -1,22 +1,6 @@
-describe('cowsaycli', function() {
-  before(function() {
-    this.argv_backup = process.argv;
-    process.argv = [null, null, 'test'];
-  });
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-  after(function() {
-    process.argv = this.argv_backup;
-  });
 
-  it('should read from process.argv', function() {
-    var called = false;
-    var testStream = {
-      write: function(input) {
-        called = true;
-        expect(input).to.eql(cowsay('test'));
-      }
-    };
-    cowsaycli(undefined, testStream);
-    expect(called).to.eql(true);
-  });
-});
+module.exports = app.listen(PORT, () => console.log('server up at port ' + PORT));
