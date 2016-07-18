@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const quoteSchema = new mongoose.Schema({
-  whatTylerSays: { type: String, required: true},
+  saying: { type: String, required: true},
   dateSaid: { type: Date, default: Date.now },
   totalCount: { type: Number, default: 0 }
 });
